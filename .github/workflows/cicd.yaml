@@ -47,17 +47,16 @@ jobs:
       run: |
         kubectl apply -f k8s/manifests/deployment.yaml
         kubectl apply -f k8s/manifests/service.yaml
-        sleep 50
+        sleep 15
 
     # Step 8: Get Minikube Service URL
-    #- name: Get Minikube Service URL
-    #  run: |
-    #    echo "Fetching Minikube Service URL..."
-    #    sleep 50  # Ensure service is ready
-    #    echo "Website URL: $(minikube service gwa1 --url)" >> $GITHUB_STEP_SUMMARY
-
-    - name: Port Forward Minikube Service
+    - name: Get Minikube Service URL
       run: |
-        sleep 10
-        nohup kubectl port-forward svc/gwa1 8080:8080 & echo "Website is accessible at http://localhost:8080" >> $GITHUB_STEP_SUMMARY
+        echo "Fetching Minikube Service URL..."
+        echo "Website URL: $(minikube service gwa1 --url)" >> $GITHUB_STEP_SUMMARY
+
+    #- name: Port Forward Minikube Service
+    #  run: |
+    #    sleep 10
+    #    nohup kubectl port-forward svc/gwa1 8080:8080 & echo "Website is accessible at http://localhost:8080" >> $GITHUB_STEP_SUMMARY
 
