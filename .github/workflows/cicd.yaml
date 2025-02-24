@@ -43,8 +43,8 @@ jobs:
     # Step 7: Deploy Application to Minikube
     - name: Apply Kubernetes Manifests
       run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+        kubectl apply -f k8s/maninfests/deployment.yaml
+        kubectl apply -f k8s/maninfests/service.yaml
 
     # Step 8: Get Minikube Service URL
     - name: Get Minikube Service URL
