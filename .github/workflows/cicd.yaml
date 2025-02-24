@@ -31,10 +31,12 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/gwa1:latest .
         docker push ${{ secrets.DOCKER_USERNAME }}/gwa1:latest
 
-    # Step 5: Set Up Minikube
-    - name: Set up Minikube
-      uses: medyagh/setup-minikube@latest
-
+    # ✅ Reset and start a fresh Minikube session
+    - name: Start Minikube (Fresh)
+      run: |
+        minikube delete || true
+        minikube start --wait=true
+        
     # Step 6: Configure kubectl to use Minikube
     - name: Configure kubectl
       run: |
