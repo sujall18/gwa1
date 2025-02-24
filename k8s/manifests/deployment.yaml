@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: gwa1
-        image: tucandu123/gwa1:v1
+        image: tucandu123/gwa1:latest
         ports:
         - containerPort: 8080
