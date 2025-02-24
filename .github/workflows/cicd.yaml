@@ -34,9 +34,10 @@ jobs:
     # ✅ Reset and start a fresh Minikube session
     - name: Start Minikube (Fresh)
       run: |
+        sleep 50
         minikube delete || true
         minikube start --wait=true
-        
+
     # Step 6: Configure kubectl to use Minikube
     - name: Configure kubectl
       run: |
@@ -52,5 +53,5 @@ jobs:
     - name: Get Minikube Service URL
       run: |
         echo "Fetching Minikube Service URL..."
-        sleep 100  # Ensure service is ready
+        sleep 50  # Ensure service is ready
         echo "Website URL: $(minikube service gwa1 --url)" >> $GITHUB_STEP_SUMMARY
