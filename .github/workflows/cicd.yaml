@@ -49,4 +49,6 @@ jobs:
     # Step 8: Get Minikube Service URL
     - name: Get Minikube Service URL
       run: |
+        echo "Fetching Minikube Service URL..."
+        sleep 100  # Ensure service is ready
         echo "Website URL: $(minikube service gwa1 --url)" >> $GITHUB_STEP_SUMMARY
