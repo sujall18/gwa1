@@ -48,6 +48,7 @@ jobs:
       run: |
         kubectl apply -f k8s/manifests/deployment.yaml
         kubectl apply -f k8s/manifests/service.yaml
+        sleep 50
 
     # Step 8: Get Minikube Service URL
     #- name: Get Minikube Service URL
